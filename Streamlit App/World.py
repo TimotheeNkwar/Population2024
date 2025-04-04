@@ -11,15 +11,15 @@ st.title("World Data")
 @st.cache_data
 def load_data():
     try:
-        return pd.read_csv("World Population by country 2024.csv")  # Chemin relatif
+        return pd.read_csv("World Population by country 2024.csv")  # path to your CSV file
     except FileNotFoundError:
         st.error("Fichier CSV introuvable. Vérifiez qu'il est bien dans votre repo GitHub.")
-        return pd.DataFrame()  # Retourne un DataFrame vide pour éviter les erreurs
+        return pd.DataFrame()  # Return an empty DataFrame if the file is not found
 
 data = load_data()
 
 if data.empty:
-    st.stop()  # Stoppe l'exécution si le fichier n'est pas trouvé
+    st.stop()  # Stop execution if data is not loaded
 
 st.write("Overview of data:", data.head())
 
@@ -57,7 +57,7 @@ with col_right:
     if not Country_data.empty:
         st.metric("Population 2024", f"{Country_data['Population 2024'].values[0]:,}")
         st.metric("Density (hab/km²)", f"{Country_data['Density (/km2)'].values[0]:,}")
-        #st.metric("Area (km²)", f"{Country_data['Area (km2)'].values[0]:,}")
+     
         st.metric("Growth Rate", f"{Country_data['Growth Rate'].values[0]}%")
         st.metric("World %", f"{Country_data['World %'].values[0]}%")
         st.metric("World Rank", f"{Country_data['World Rank'].values[0]}")
