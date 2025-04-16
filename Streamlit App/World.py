@@ -57,7 +57,6 @@ with col_right:
     if not Country_data.empty:
         st.metric("Population 2024", f"{Country_data['Population 2024'].values[0]:,}")
         st.metric("Density (hab/km²)", f"{Country_data['Density (/km2)'].values[0]:,}")
-     
         st.metric("Growth Rate", f"{Country_data['Growth Rate'].values[0]}%")
         st.metric("World %", f"{Country_data['World %'].values[0]}%")
         st.metric("World Rank", f"{Country_data['World Rank'].values[0]}")
@@ -74,7 +73,6 @@ with col_center:
         hover_name="Country",
         hover_data={
             "Population 2024": True,
-            "Population 2023": True,
             "Area (km2)": True,
             "Density (/km2)": True,
             "Growth Rate": True,
